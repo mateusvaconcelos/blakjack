@@ -68,11 +68,11 @@ maquina_malandra = ['sim', 'não']
 
 #essa parte permite o usuário escolher o número de baralhos que irá utilizar: 
 
-numero_de_baralhos = int(input('''Olá, antes de começarmos, escolha o número de baralhos que deseja utilizar. (1 a 4): '''))
+numero_de_baralhos = int(input('''quantos baralhos voce quer usar(1 a 4): '''))
 while numero_de_baralhos > 4 or numero_de_baralhos < 1: 
-    print("Opção inválida, por favor tente novamente.")
+    print("é de 1 a 4 baralhos")
     time.sleep(2)
-    numero_de_baralhos = int(input('''Olá, antes de começarmos, escolha o número de baralhos que deseja utilizar. (1 a 4): '''))
+    numero_de_baralhos = int(input('''uantos baralhos voce quer usar (1 a 4): '''))
     
 lista_de_baralhos = []
 
@@ -97,13 +97,11 @@ else:
 
 #contrutor
 
-jogadores = int(input('''Olá seja bem vindo ao ultimate blackjack, escolha a 
-quantidade de jogadores (1 a 7): '''))
+jogadores = int(input('''escolha a quantidade de jogadores (1 a 7): '''))
 while jogadores > 7 or jogadores < 1: 
-    print("Opção inválida, por favor tente novamente.")
+    print("é de 1 a 7 jogadores")
     print('')
-    jogadores = int(input('''Olá seja bem vindo ao ultimate blackjack, escolha a 
-quantidade de jogadores (1 a 4): '''))
+    jogadores = int(input('''escolha a quantidade de jogadores (1 a 7):'''))
 
 players = {
     'jogador_01': '',
@@ -310,7 +308,7 @@ O saldo de {0} é de {1} reais.'''.format(jogador_01, dinero_01))
                                break
                             
            if soma_pontos_jogador_01 > 21:
-               print ("você perdeu a rodada!!! Tururuu")
+               print ("você perdeu a rodada!!!")
                dinero_01 -= valor_aposta_jogador_01
                
            elif soma_pontos_jogador_01 < 21 and soma_pontos_mesa > 21:
@@ -358,13 +356,17 @@ O saldo de {0} é de {1} reais.'''.format(jogador_01, dinero_01))
         print('')
         print("Seu saldo acabou!! Consiga mais dinheiro para jogar novamente.")
         for i in 'GAME OVER':
-            print(i)
+            print('\033[1;31m'+i+'\033[1;31m')
             time.sleep(1)
     else:
         print('')
         print('O saldo final devolvido foi {0} reais.'.format(dinero_01))
         time.sleep(1.0)
         print('')
-        for i in 'GAME OVER' :
-            print(i)
-            time.sleep(1)
+        for i in 'GAME OVER':
+            print('\033[1;31m'+i+'\033[1;31m')
+            time.sleep(0.5)
+
+        # for i in 'GAME OVER' :
+        #     print(f"\033[1;31m{i}\033[1;31m")
+        #     time.sleep(0.5)
